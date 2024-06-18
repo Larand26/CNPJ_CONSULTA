@@ -171,7 +171,7 @@ const contTelefone = document.querySelector(".telefone");
 
 contInsctricao.addEventListener("click", (evt) => {
   var selecao = document.createRange();
-  selecao.selectNodeContents(contInsctricao);
+  selecao.selectNodeContents(resInscricao);
   window.getSelection().removeAllRanges();
   window.getSelection().addRange(selecao);
   if (selecao.commonAncestorContainer.innerText !== "") {
@@ -179,10 +179,9 @@ contInsctricao.addEventListener("click", (evt) => {
       document.execCommand("copy");
       const a = document.getElementById("copy");
       if (!a) {
-        resInscricao.innerHTML += `<br id="br-copy"><label id="copy">Copiado</label>`;
+        document.getElementById("a").innerHTML += `<p id="copy">Copiado</p>`;
         setTimeout(function () {
           document.getElementById("copy").remove();
-          document.getElementById("br-copy").remove();
         }, 1000);
       }
     } catch (err) {
@@ -195,17 +194,19 @@ contInsctricao.addEventListener("click", (evt) => {
 
 contTelefone.addEventListener("click", (evt) => {
   var selecao = document.createRange();
-  selecao.selectNodeContents(contTelefone);
+  selecao.selectNodeContents(resTelefone);
   window.getSelection().removeAllRanges();
   window.getSelection().addRange(selecao);
   if (selecao.commonAncestorContainer.innerText !== "") {
     try {
       document.execCommand("copy");
-      resTelefone.innerHTML += `<br id="br-copy"><label id="copy">Copiado</label>`;
-      setTimeout(function () {
-        document.getElementById("copy").remove();
-        document.getElementById("br-copy").remove();
-      }, 1000);
+      const a = document.getElementById("copy");
+      if (!a) {
+        document.getElementById("b").innerHTML += `<p id="copy">Copiado</p>`;
+        setTimeout(function () {
+          document.getElementById("copy").remove();
+        }, 1000);
+      }
     } catch (err) {
       console.error("Erro ao copiar texto: ", err);
       alert("Erro ao copiar texto. Por favor, tente novamente.");
