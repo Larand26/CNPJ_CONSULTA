@@ -166,22 +166,27 @@ const consulta = () => {
     .catch((err) => {});
 };
 
-const contInsctricao = document.querySelector(".inscricao");
+const contInscricao = document.querySelector(".inscricao");
 const contTelefone = document.querySelector(".telefone");
 
-contInsctricao.addEventListener("click", (evt) => {
+contInscricao.addEventListener("click", async (evt) => {
   var selecao = document.createRange();
   selecao.selectNodeContents(resInscricao);
   window.getSelection().removeAllRanges();
   window.getSelection().addRange(selecao);
-  if (selecao.commonAncestorContainer.innerText !== "") {
+
+  if (window.getSelection().toString() !== "") {
     try {
-      document.execCommand("copy");
-      const a = document.getElementById("copy");
-      if (!a) {
+      await navigator.clipboard.writeText(window.getSelection().toString());
+
+      const copyMessage = document.getElementById("copy");
+      if (!copyMessage) {
         document.getElementById("a").innerHTML += `<p id="copy">Copiado</p>`;
         setTimeout(function () {
-          document.getElementById("copy").remove();
+          const msg = document.getElementById("copy");
+          if (msg) {
+            msg.remove();
+          }
         }, 1000);
       }
     } catch (err) {
@@ -192,19 +197,24 @@ contInsctricao.addEventListener("click", (evt) => {
   window.getSelection().removeAllRanges();
 });
 
-contTelefone.addEventListener("click", (evt) => {
+contTelefone.addEventListener("click", async (evt) => {
   var selecao = document.createRange();
   selecao.selectNodeContents(resTelefone);
   window.getSelection().removeAllRanges();
   window.getSelection().addRange(selecao);
-  if (selecao.commonAncestorContainer.innerText !== "") {
+
+  if (window.getSelection().toString() !== "") {
     try {
-      document.execCommand("copy");
-      const a = document.getElementById("copy");
-      if (!a) {
+      await navigator.clipboard.writeText(window.getSelection().toString());
+
+      const copyMessage = document.getElementById("copy");
+      if (!copyMessage) {
         document.getElementById("b").innerHTML += `<p id="copy">Copiado</p>`;
         setTimeout(function () {
-          document.getElementById("copy").remove();
+          const msg = document.getElementById("copy");
+          if (msg) {
+            msg.remove();
+          }
         }, 1000);
       }
     } catch (err) {
