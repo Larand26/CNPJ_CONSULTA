@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="./index.js" defer></script>
+    <link rel="stylesheet" href="./index.css" />
+    <title>Consultar o CNPJ</title>
+  </head>
+  <body>
+    <div class="nav">
+      <img src="./imgs/logo.svg" alt="" class="logo-nav" />
+      <div class="filtro">
+        <img src="./imgs/filtro.svg" alt="" class="img-filtro" />
+      </div>
+    </div>
+    <div class="cont-cnpj">
+      <input
+        type="text"
+        name="inp_cnpj"
+        id="inp_cnpj"
+        class="inp-cnpj"
+        placeholder="Cnpj..."
+      />
+      <button class="btn-busca" id="btn_busca">
+        <img src="./imgs/lupa.svg" alt="" class="img-busca" />
+      </button>
+    </div>
+    <div class="cont-cargos">
+      <div class="txt-cargos">
+        <p>Em qual área você atua?</p>
+      </div>
+      <div class="btns-cargos">
+        <button class="btn-cargo" id="caixa">Caixa</button>
+        <button class="btn-cargo" id="vendas">Venda</button>
+        <button class="btn-cargo" id="website">Website</button>
+      </div>
+    </div>
+    <div id="cnpj"></div>
+    <div class="dados">
+      <div class="menu nome">
+        <h4>Nome:</h4>
+        <p id="nome" class="res"></p>
+      </div>
+      <div class="menu atv-p">
+        <h4>Atividade Principal:</h4>
+        <p id="atvP" class="res"></p>
+      </div>
+      <div class="menu atv-s">
+        <h4>Atividade Secundária:</h4>
+        <p id="atvS" class="res"></p>
+      </div>
+      <div class="menu endereco">
+        <h4>Endereço:</h4>
+        <p id="endereco" class="res"></p>
+      </div>
+      <div class="menu email">
+        <h4>Email:</h4>
+        <p id="email" class="res"></p>
+      </div>
+      <div class="menu socios">
+        <h4>Socios:</h4>
+        <p id="socios" class="res"></p>
+      </div>
+    </div>
+    <div class="dados2">
+      <div class="menu2" title="Situação">
+        <img src="./imgs/situação.svg" alt="" class="img-dados2" />
+      </div>
+      <div class="menu2" title="Inscrição">
+        <img src="./imgs/inscrição.svg" alt="" class="img-dados2" />
+      </div>
+      <div class="menu2" title="Telefone">
+        <img src="./imgs/telefone.svg" alt="" class="img-dados2" />
+      </div>
+    </div>
+    <div class="dados-ex">
+      <div class="situacao" title="Situação">
+        <img src="./imgs/situação.svg" alt="" class="img-dados2" />
+        <p id="situacao"></p>
+      </div>
+      <div class="inscricao" title="Inscrição">
+        <img src="./imgs/inscrição.svg" alt="" class="img-dados2" />
+        <p id="inscricao"></p>
+      </div>
+      <div class="telefone" title="Telefone">
+        <img src="./imgs/telefone.svg" alt="" class="img-dados2" />
+        <p id="telefone"></p>
+      </div>
+    </div>
+    <div class="filtros-ex">
+      <img src="./imgs/filtro.svg" alt="" class="img-filtro-ex" />
+      <hr />
+      <p>Desejo ver:</p>
+      <div class="intputs">
+        <div class="case">
+          <input
+            type="checkbox"
+            name="checkTodos"
+            id="checkTodos"
+            checked
+            class="inp-check"
+          />
+          <label>Todos</label>
+        </div>
+        <div class="case">
+          <input
+            type="checkbox"
+            name="checkNome"
+            id="checkNome"
+            checked
+            class="inp-check"
+          />
+          <label>Nome</label>
+        </div>
+        <div class="case">
+          <input
+            type="checkbox"
+            name="checkAtividades"
+            id="checkAtividades"
+            checked
+            class="inp-check"
+          />
+          <label>Atividades</label>
+        </div>
+
+        <div class="case">
+          <input
+            type="checkbox"
+            name="checkEnderecos"
+            id="checkEnderecos"
+            checked
+            class="inp-check"
+          />
+          <label>Endereços</label>
+        </div>
+        <div class="case">
+          <input
+            type="checkbox"
+            name="checkEmail"
+            id="checkEmail"
+            checked
+            class="inp-check"
+          />
+          <label>Email</label>
+        </div>
+        <div class="case">
+          <input
+            type="checkbox"
+            name="checkSocios"
+            id="checkSocios"
+            checked
+            class="inp-check"
+          />
+          <label>Socios</label>
+        </div>
+      </div>
+    </div>
+    <div class="tela"></div>
+  </body>
+</html>
