@@ -341,63 +341,40 @@ updateBtnCargo();
 
 const updateBorder = () => {
   const menusArray = [...menus];
+  let a = false;
+  let z = false;
   let contagem = 0;
-  menus.forEach((el) => {
+  menusArray.forEach((el) => {
     el.classList.remove("borderL");
     el.classList.remove("borderF");
     el.classList.remove("borderU");
   });
   //Boreder Last
-  if (
-    menusArray[3].style.display == "none" &&
-    menusArray[4].style.display == "none" &&
-    menusArray[5].style.display == "none"
-  ) {
-    menusArray[2].classList.add("borderL");
+  for (let i = 0; i < menusArray.length; i++) {
+    const el = menusArray[i];
+    if (el.style.display !== "none" && !a) {
+      el.classList.add("borderF");
+      a = !a;
+    }
   }
-  if (
-    menusArray[4].style.display == "none" &&
-    menusArray[5].style.display == "none"
-  ) {
-    menusArray[3].classList.add("borderL");
+  for (let i = menusArray.length - 1; i >= 0; i--) {
+    const el = menusArray[i];
+    console.log("a");
+    if (el.style.display !== "none" && !z) {
+      el.classList.add("borderL");
+      z = !z;
+    }
   }
-  if (menusArray[5].style.display == "none") {
-    menusArray[4].classList.add("borderL");
-  }
-  //Border First
-  if (
-    menusArray[0].style.display == "none" &&
-    menusArray[1].style.display == "none" &&
-    menusArray[2].style.display == "none" &&
-    menusArray[3].style.display == "none"
-  ) {
-    menusArray[4].classList.add("borderF");
-  }
-  if (
-    menusArray[0].style.display == "none" &&
-    menusArray[1].style.display == "none" &&
-    menusArray[2].style.display == "none"
-  ) {
-    menusArray[3].classList.add("borderF");
-  }
-  if (
-    menusArray[0].style.display == "none" &&
-    menusArray[1].style.display == "none"
-  ) {
-    menusArray[2].classList.add("borderF");
-  }
-  if (menusArray[0].style.display == "none") {
-    menusArray[1].classList.add("borderF");
-  }
-  menus.forEach((el) => {
-    if (el.style.display == "none") {
+  menusArray.forEach((el) => {
+    if (el.style.display === "none") {
       contagem++;
-
-      if (contagem == 5) {
-        menus.forEach((element) => {
-          element.classList.add("borderU");
-        });
-      }
+    }
+    if (contagem == 5) {
+      menusArray.forEach((menu) => {
+        if (menu.style.display !== "none") {
+          menu.classList.add("borderU");
+        }
+      });
     }
   });
 };
