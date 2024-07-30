@@ -241,6 +241,9 @@ body {
 .telefone:last-child {
   border-radius: 0 0 30px 0;
 }
+#dataInscricao {
+  font-size: 25px;
+}
 .filtros-ex {
   width: 200px;
   display: flex;

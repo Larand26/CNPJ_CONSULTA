@@ -86,6 +86,7 @@ const resSituacao = document.querySelector("#situacao");
 const resInscricao = document.querySelector("#inscricao");
 const resTelefone = document.querySelector("#telefone");
 const resEmail = document.querySelector("#email");
+const resDataInscricao = document.querySelector("#dataInscricao");
 
 //res
 
@@ -154,6 +155,10 @@ const consulta = () => {
         res.estabelecimento.inscricoes_estaduais.forEach((el) => {
           if (el.ativo === true) {
             resInscricao.innerHTML = `${el.inscricao_estadual}`;
+            const dataInsnricao = new Date(el.atualizado_em);
+            resDataInscricao.innerHTML = `${dataInsnricao.getDate()}/${
+              dataInsnricao.getMonth() + 1
+            }/${dataInsnricao.getFullYear()}`;
             return;
           } else {
             resInscricao.innerHTML = "Não possue inscrição ativa";
